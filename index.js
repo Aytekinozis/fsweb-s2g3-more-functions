@@ -16,8 +16,9 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(dosyaadi) {
+  const dizin = dosyaadi.split("/");
+  return dizin[dizin.length - 1];
 }
 
 /*
@@ -38,10 +39,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    const topl = arr.reduce((toplam, i) => toplam + i);
+    const result = topl / arr.length;
+    return result;
+  }
 }
 
+//console.log(ortalamaBul([]));
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
@@ -62,8 +70,15 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length === 1) {
+    return arr;
+  } else {
+    const result = arr.filter((sayi) => sayi > ortalamaBul(arr));
+    return result;
+  }
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
